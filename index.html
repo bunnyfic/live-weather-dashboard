@@ -46,7 +46,6 @@
     flex-shrink:0;
   }
   .bear-wrap img{width:38px;height:38px;object-fit:contain;}
-  .title-block{min-width:0;}
   .title-block h1{
     margin:0; font-size:19px; font-weight:600;
   }
@@ -98,7 +97,6 @@
     border-color:var(--mint);
     color:#fff;
   }
-  .loc-btns{display:contents;}
   .loc-search{
     display:flex;
     margin-left:auto;
@@ -321,55 +319,52 @@
         "aq"
         "rain";
     }
+    .loc-search{margin-left:0;width:100%;}
+    .loc-search input{flex:1;}
   }
 
-  /* ---- Phone: ditch the "dashboard" feel, everything flows one item after another ---- */
+  /* ---- Phone: drop the tiled "dashboard" feel — everything reads top to bottom ---- */
   @media(max-width:640px){
     body{padding:14px;}
 
-    .topbar{flex-wrap:wrap; padding:12px 16px;}
+    .topbar{flex-wrap:wrap;padding:12px 16px;gap:12px;}
     .title-block h1{font-size:16.5px;}
-    .status{margin-left:0; width:100%; justify-content:center; margin-top:10px;}
+    .status{margin-left:0;width:100%;justify-content:center;}
 
-    .locbar{flex-direction:column; align-items:stretch; padding:12px 14px;}
-    .loc-label{margin-bottom:6px;}
-    .loc-btns{
-      display:flex; gap:8px; overflow-x:auto;
-      padding-bottom:6px; margin-bottom:2px;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:thin;
-      width:100%; min-width:0;
-    }
-    .loc-btn{flex-shrink:0;}
-    .loc-search{margin-left:0; width:100%;}
-    .loc-search input{width:auto; flex:1;}
-    .suggest-list{width:100%; left:0; right:0;}
+    .locbar{flex-direction:column;align-items:stretch;}
+    .loc-label{margin-bottom:2px;}
+    .loc-btn{width:100%;text-align:center;}
+    .loc-search{width:100%;}
+    .loc-search input{width:auto;}
+    .suggest-list{left:0;right:0;width:auto;}
 
-    .grid{gap:12px;}
+    .hero .temp{font-size:46px;}
 
-    .hero{padding:18px;}
-    .hero .temp{font-size:44px;}
-
-    /* forecast strip: stacked rows instead of a card grid */
-    .day-row{flex-direction:column; gap:10px;}
+    /* 3-day forecast: one row per day instead of 3 cards side by side */
+    .day-row{flex-direction:column;gap:10px;}
     .day-card{
-      flex-direction:row; justify-content:space-between; align-items:center;
-      text-align:left; padding:12px 18px;
+      flex-direction:row;
+      align-items:center;
+      justify-content:space-between;
+      text-align:left;
+      padding:12px 18px;
     }
-    .day-card .ic{font-size:20px;order:2;}
-    .day-card .t{margin:0;order:3;}
-    .day-card .d{order:1;}
+    .day-card .d{order:1;flex:1;}
+    .day-card .ic{order:2;font-size:20px;margin:0 12px;}
+    .day-card .t{order:3;margin:0;}
 
-    /* stat tiles: one full-width row after another, not a 2-col grid */
-    .stats{grid-template-columns:1fr; grid-template-rows:none; gap:10px;}
-    .stat{flex-direction:row; align-items:center; justify-content:space-between; padding:12px 16px;}
-    .stat .lbl{margin:0;}
-    .stat .val{margin:0;}
+    /* stat tiles: one full-width row after another instead of a 2-col grid */
+    .stats{grid-template-columns:1fr;grid-template-rows:none;}
+    .stat{flex-direction:row;align-items:center;justify-content:space-between;padding:12px 16px;}
+    .stat .val{margin-top:0;}
 
-    .aq-flex{flex-wrap:wrap; justify-content:center; text-align:center;}
-    .aq-grid{grid-template-columns:1fr 1fr; width:100%;}
+    /* sunrise/sunset: stacked instead of side by side */
+    .sun-row{flex-direction:column;gap:14px;align-items:flex-start;}
 
-    .rain-day-label{width:56px;}
+    /* air quality: ring on top, pollutants as a single-column list below */
+    .aq-flex{flex-direction:column;align-items:center;text-align:center;}
+    .aq-grid{grid-template-columns:1fr;width:100%;}
+    .aq-grid div{justify-content:center;}
   }
 </style>
 </head>
@@ -386,7 +381,7 @@
 
 <div class="locbar" id="locBar">
   <span class="loc-label">Location:</span>
-  <div class="loc-btns" id="locBtns"></div>
+  <!-- buttons injected by JS -->
   <div class="loc-search">
     <input type="text" id="customCityInput" placeholder="Type a city…" autocomplete="off"/>
     <button id="customCityGo">Go</button>
@@ -609,14 +604,16 @@ function renderRainDays(list){
 }
 
 function renderLocButtons(){
-  const wrap = document.getElementById("locBtns");
-  wrap.innerHTML = "";
+  const bar = document.getElementById("locBar");
+  // remove existing buttons (keep label + search)
+  bar.querySelectorAll(".loc-btn").forEach(b=>b.remove());
+  const search = bar.querySelector(".loc-search");
   PRESET_CITIES.forEach(city=>{
     const btn = document.createElement("button");
     btn.className = "loc-btn" + (city===currentCity ? " active":"");
     btn.textContent = city;
     btn.onclick = ()=>{ currentCity = city; loadDashboard(); };
-    wrap.appendChild(btn);
+    bar.insertBefore(btn, search);
   });
 }
 
