@@ -1,5 +1,5 @@
 # 🐻 Weather Dashboard
-live demo :
+live demo :https://bunnyfic.github.io/live-weather-dashboard/
 
 A cute, live weather dashboard with a mint-green & light-brown theme, built with plain HTML/CSS/JS and powered by the OpenWeatherMap API. No build step, no dependencies — open the file and it just works.
 
