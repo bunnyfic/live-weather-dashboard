@@ -1,4 +1,4 @@
-# 🐻 Weather Dashboard
+# Weather Dashboard
 live demo : https://live-weather-dashboard-fgg8.onrender.com/
 
 
@@ -19,7 +19,7 @@ A cute, live weather dashboard with a baby pink theme, built with plain HTML/CSS
 - **4-day Chance of Rain** bar chart
 - **Location switcher** — quick-select buttons for popular cities, plus a search box with live wildcard/substring autocomplete
 - **Auto-refreshes** every 10 minutes
-- Flat, solid mint-green & light-brown theme with a bear mascot in the header
+- Flat, solid mint-green & light-pink and dark themed with a mascot in the header
 
 ## 📦 What's in this repo
 
