@@ -78,6 +78,7 @@ Colors live as CSS variables at the top of the `<style>` block:
 ```
 SCREENSHOTS
 <img width="1340" height="585" alt="image" src="https://github.com/user-attachments/assets/51aa7816-9b0f-48a2-b6e7-a6a3bc694198" />
+<img width="1366" height="721" alt="image" src="https://github.com/user-attachments/assets/16aa0f54-8aa1-4bec-b012-b8596e7eb501" />
 
 added Update :
 an cute weather ai assistant to summarize the weather for the user incase the user is lost and cannot make stuff out of the dashboard. :3
