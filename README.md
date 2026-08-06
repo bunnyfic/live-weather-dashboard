@@ -1,5 +1,5 @@
 # Weather Dashboard
-live demo : https://live-weather-dashboard-fgg8.onrender.com/
+live demo : https://live-weather-dashboard-1-b8n5.onrender.com/
 
 
 A cute, live weather dashboard with a baby pink theme, built with plain HTML/CSS/JS and powered by the OpenWeatherMap API. No build step, no dependencies — open the file and it just works.
