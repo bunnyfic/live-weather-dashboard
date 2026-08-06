@@ -4,10 +4,11 @@ live demo : https://live-weather-dashboard-fgg8.onrender.com/
 
 A cute, live weather dashboard with a baby pink theme, built with plain HTML/CSS/JS and powered by the OpenWeatherMap API. No build step, no dependencies — open the file and it just works.
 
-![theme](https://img.shields.io/badge/theme-babypink%20%26%20-4F9E80?style=flat-square)
-![live data](https://img.shields.io/badge/data-live-C79F72?style=flat-square)
-![no build](https://img.shields.io/badge/build-none%20needed-3F3226?style=flat-square)
+![theme](https://img.shields.io/badge/theme-baby%20pink%20%26%20dark%20pink-FF1493?style=flat-square&labelColor=FFC1E3&color=FF1493)
 
+![live data](https://img.shields.io/badge/data-live-FF1493?style=flat-square&labelColor=FFC1E3)
+
+![no build](https://img.shields.io/badge/build-none%20needed-FF1493?style=flat-square&labelColor=FFC1E3)
 ## ✨ Features
 
 - **Live current conditions** — temperature, feels-like, min/max, cloud cover, description
