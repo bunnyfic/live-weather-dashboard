@@ -62,7 +62,7 @@ const CITY_LIST = [
   "Dhaka,BD","Islamabad,PK","Karachi,PK","Lahore,PK",
   // Oceania
   "Sydney,AU","Melbourne,AU","Brisbane,AU","Perth,AU","Gold Coast,AU","Adelaide,AU",
-  "Auckland,NZ","Wellington,NZ","Queenstown,NZ","Fiji,FJ"
+  "Auckland,NZ","Wellington,NZ","Queenstown,NZ","Fiji,FJ", 
 
 
   "Jeju,KR",
